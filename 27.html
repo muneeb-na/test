@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>HCI Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Human-Computer Interaction (HCI) Quiz</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. What does HCI stand for?</p>
+                <input type="radio" name="q1" value="wrong"> Human Computer Innovation <br>
+                <input type="radio" name="q1" value="correct"> Human Computer Interaction <br>
+                <input type="radio" name="q1" value="wrong"> Hardware Communication Interface <br>
+                <input type="radio" name="q1" value="wrong"> Human Central Integration <br>
+            </div>
+            <div class="question">
+                <p>2. Which of the following is a key goal of HCI?</p>
+                <input type="radio" name="q2" value="wrong"> Making computers more expensive <br>
+                <input type="radio" name="q2" value="correct"> Enhancing user experience and usability <br>
+                <input type="radio" name="q2" value="wrong"> Replacing humans with AI <br>
+                <input type="radio" name="q2" value="wrong"> Reducing screen time for users <br>
+            </div>
+            <div class="question">
+                <p>3. Which input device is commonly used in HCI for direct touch interaction?</p>
+                <input type="radio" name="q3" value="wrong"> Keyboard <br>
+                <input type="radio" name="q3" value="wrong"> Mouse <br>
+                <input type="radio" name="q3" value="correct"> Touchscreen <br>
+                <input type="radio" name="q3" value="wrong"> Printer <br>
+            </div>
+            <div class="question">
+                <p>4. What is the main focus of usability in HCI?</p>
+                <input type="radio" name="q4" value="wrong"> The cost of the system <br>
+                <input type="radio" name="q4" value="correct"> The ease of learning and use <br>
+                <input type="radio" name="q4" value="wrong"> The programming language used <br>
+                <input type="radio" name="q4" value="wrong"> The storage capacity of the device <br>
+            </div>
+            <div class="question">
+                <p>5. Which of the following is an example of a multimodal interface?</p>
+                <input type="radio" name="q5" value="wrong"> A website that only accepts keyboard input <br>
+                <input type="radio" name="q5" value="correct"> A voice assistant that also supports touch input <br>
+                <input type="radio" name="q5" value="wrong"> A calculator with only numeric buttons <br>
+                <input type="radio" name="q5" value="wrong"> A printer that only prints black and white <br>
+            </div>
+            <div class="question">
+                <p>6. Which of the following is NOT a principle of HCI design?</p>
+                <input type="radio" name="q6" value="wrong"> Consistency <br>
+                <input type="radio" name="q6" value="wrong"> Feedback <br>
+                <input type="radio" name="q6" value="correct"> Complexity <br>
+                <input type="radio" name="q6" value="wrong"> Error prevention <br>
+            </div>
+            <div class="question">
+                <p>7. Which usability heuristic states that users should always know what is happening in the system?</p>
+                <input type="radio" name="q7" value="wrong"> Aesthetic and minimalist design <br>
+                <input type="radio" name="q7" value="correct"> Visibility of system status <br>
+                <input type="radio" name="q7" value="wrong"> Help and documentation <br>
+                <input type="radio" name="q7" value="wrong"> Recognition rather than recall <br>
+            </div>
+            <div class="question">
+                <p>8. Which cognitive psychology concept is most relevant to HCI design?</p>
+                <input type="radio" name="q8" value="wrong"> Newton’s Laws of Motion <br>
+                <input type="radio" name="q8" value="correct"> Hick’s Law <br>
+                <input type="radio" name="q8" value="wrong"> Pythagorean Theorem <br>
+                <input type="radio" name="q8" value="wrong"> Ohm’s Law <br>
+            </div>
+            <div class="question">
+                <p>9. What is "Gulf of Execution" in HCI?</p>
+                <input type="radio" name="q9" value="correct"> The difference between what a user wants to do and what the system allows them to do <br>
+                <input type="radio" name="q9" value="wrong"> The time taken to execute a command <br>
+                <input type="radio" name="q9" value="wrong"> The communication gap between designers and developers <br>
+                <input type="radio" name="q9" value="wrong"> The difference between an application and an operating system <br>
+            </div>
+            <div class="question">
+                <p>10. Which HCI model focuses on user actions being broken down into goals, operators, methods, and selection rules?</p>
+                <input type="radio" name="q10" value="wrong"> Fitts' Law <br>
+                <input type="radio" name="q10" value="correct"> GOMS Model <br>
+                <input type="radio" name="q10" value="wrong"> Norman’s Interaction Framework <br>
+                <input type="radio" name="q10" value="wrong"> Gestalt Principles <br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+</body>
+<script>
+    function calculateScore() {
+        let score = 0;
+        let answers = document.querySelectorAll('input[type=radio]:checked');
+        answers.forEach(ans => {
+            if (ans.value === "correct") score++;
+        });
+        localStorage.setItem("quizScore", score);
+        window.location.href = "result.html";
+    }
+</script>
+</html>

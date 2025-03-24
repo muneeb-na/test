@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="style.css">
+    <title>HTML Quiz</title>
+    
+</head>
+<body>
+    <div class="container">
+        <h2>HTML Quiz</h2>
+        <form id="quizForm">
+            <!-- Previous Questions -->
+            <div class="question">
+                <p>1. What does HTML stand for?</p>
+                <input type="radio" name="q1" value="correct"> Hyper Text Markup Language <br>
+                <input type="radio" name="q1" value="wrong"> High Text Machine Learning <br>
+                <input type="radio" name="q1" value="wrong"> Hyperlink and Text Markup Language <br>
+                <input type="radio" name="q1" value="wrong"> Home Tool Markup Language <br>
+            </div>
+            <div class="question">
+                <p>2. What is the correct HTML element for the largest heading?</p>
+                <input type="radio" name="q2" value="correct"> &lt;h1&gt; <br>
+                <input type="radio" name="q2" value="wrong"> &lt;heading&gt; <br>
+                <input type="radio" name="q2" value="wrong"> &lt;h6&gt; <br>
+                <input type="radio" name="q2" value="wrong"> &lt;head&gt; <br>
+            </div>
+            <div class="question">
+                <p>3. Which HTML element is used to define a paragraph?</p>
+                <input type="radio" name="q3" value="correct"> &lt;p&gt; <br>
+                <input type="radio" name="q3" value="wrong"> &lt;paragraph&gt; <br>
+                <input type="radio" name="q3" value="wrong"> &lt;text&gt; <br>
+                <input type="radio" name="q3" value="wrong"> &lt;para&gt; <br>
+            </div>
+            <div class="question">
+                <p>4. What is the correct HTML element for inserting a line break?</p>
+                <input type="radio" name="q4" value="correct"> &lt;br&gt; <br>
+                <input type="radio" name="q4" value="wrong"> &lt;break&gt; <br>
+                <input type="radio" name="q4" value="wrong"> &lt;lb&gt; <br>
+                <input type="radio" name="q4" value="wrong"> &lt;newline&gt; <br>
+            </div>
+            <div class="question">
+                <p>5. How do you create a hyperlink in HTML?</p>
+                <input type="radio" name="q5" value="correct"> &lt;a href="url"&gt;Link&lt;/a&gt; <br>
+                <input type="radio" name="q5" value="wrong"> &lt;link&gt; <br>
+                <input type="radio" name="q5" value="wrong"> &lt;href&gt; <br>
+                <input type="radio" name="q5" value="wrong"> &lt;hyper&gt; <br>
+            </div>
+            <div class="question">
+                <p>6. Which attribute specifies an image source?</p>
+                <input type="radio" name="q6" value="correct"> src <br>
+                <input type="radio" name="q6" value="wrong"> href <br>
+                <input type="radio" name="q6" value="wrong"> alt <br>
+                <input type="radio" name="q6" value="wrong"> img <br>
+            </div>
+            <div class="question">
+                <p>7. What is the default file extension for HTML files?</p>
+                <input type="radio" name="q7" value="correct"> .html <br>
+                <input type="radio" name="q7" value="wrong"> .htl <br>
+                <input type="radio" name="q7" value="wrong"> .htm <br>
+                <input type="radio" name="q7" value="wrong"> .web <br>
+            </div>
+
+            <!-- Hard Questions -->
+            <div class="question">
+                <p>8. Which tag is used to define metadata about an HTML document?</p>
+                <input type="radio" name="q8" value="correct"> &lt;meta&gt; <br>
+                <input type="radio" name="q8" value="wrong"> &lt;head&gt; <br>
+                <input type="radio" name="q8" value="wrong"> &lt;info&gt; <br>
+                <input type="radio" name="q8" value="wrong"> &lt;data&gt; <br>
+            </div>
+            <div class="question">
+                <p>9. What is the purpose of the `rel` attribute in a link tag?</p>
+                <input type="radio" name="q9" value="correct"> Defines the relationship between the current and linked document <br>
+                <input type="radio" name="q9" value="wrong"> Specifies the relative position of the link <br>
+                <input type="radio" name="q9" value="wrong"> Makes the link responsive <br>
+                <input type="radio" name="q9" value="wrong"> None of the above <br>
+            </div>
+            <div class="question">
+                <p>10. Which HTML attribute is used to specify that an input field must be filled out before submitting?</p>
+                <input type="radio" name="q10" value="correct"> required <br>
+                <input type="radio" name="q10" value="wrong"> validate <br>
+                <input type="radio" name="q10" value="wrong"> mustfill <br>
+                <input type="radio" name="q10" value="wrong"> necessary <br>
+            </div>
+
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+<script src="script.js"></script>
+    <script>
+        function calculateScore() {
+            let score = 0;
+            let answers = document.querySelectorAll('input[type=radio]:checked');
+            
+            answers.forEach(ans => {
+                if (ans.value === "correct") score++;
+            });
+
+            // Store score in local storage
+            localStorage.setItem("quizScore", score);
+
+            // Redirect to result.html
+            window.location.href = "result.html";
+        }
+        
+
+    </script>
+</body>
+</html>

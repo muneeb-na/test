@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Software Engineering Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Software Engineering Quiz</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. Which of the following is NOT a software development model?</p>
+                <input type="radio" name="q1" value="wrong"> Waterfall <br>
+                <input type="radio" name="q1" value="wrong"> Spiral <br>
+                <input type="radio" name="q1" value="wrong"> Agile <br>
+                <input type="radio" name="q1" value="correct"> Static <br>
+            </div>
+            <div class="question">
+                <p>2. What does SDLC stand for?</p>
+                <input type="radio" name="q2" value="wrong"> Software Data Logic Cycle <br>
+                <input type="radio" name="q2" value="correct"> Software Development Life Cycle <br>
+                <input type="radio" name="q2" value="wrong"> System Design and Logic Creation <br>
+                <input type="radio" name="q2" value="wrong"> Software Deployment and Launch Cycle <br>
+            </div>
+            <div class="question">
+                <p>3. Which phase in SDLC is responsible for gathering user requirements?</p>
+                <input type="radio" name="q3" value="wrong"> Coding <br>
+                <input type="radio" name="q3" value="correct"> Requirement Analysis <br>
+                <input type="radio" name="q3" value="wrong"> Testing <br>
+                <input type="radio" name="q3" value="wrong"> Maintenance <br>
+            </div>
+            <div class="question">
+                <p>4. Which type of testing is performed without executing the code?</p>
+                <input type="radio" name="q4" value="correct"> Static Testing <br>
+                <input type="radio" name="q4" value="wrong"> Dynamic Testing <br>
+                <input type="radio" name="q4" value="wrong"> Unit Testing <br>
+                <input type="radio" name="q4" value="wrong"> Regression Testing <br>
+            </div>
+            <div class="question">
+                <p>5. Which software development methodology emphasizes iterative progress and customer feedback?</p>
+                <input type="radio" name="q5" value="wrong"> Waterfall <br>
+                <input type="radio" name="q5" value="correct"> Agile <br>
+                <input type="radio" name="q5" value="wrong"> V-Model <br>
+                <input type="radio" name="q5" value="wrong"> Spiral <br>
+            </div>
+            <div class="question">
+                <p>6. (Hard) What is the main goal of software configuration management?</p>
+                <input type="radio" name="q6" value="wrong"> Managing hardware dependencies <br>
+                <input type="radio" name="q6" value="wrong"> Writing code faster <br>
+                <input type="radio" name="q6" value="correct"> Tracking and controlling changes in software <br>
+                <input type="radio" name="q6" value="wrong"> Removing unnecessary code <br>
+            </div>
+            <div class="question">
+                <p>7. (Hard) In object-oriented programming, what principle is achieved by using interfaces and abstract classes?</p>
+                <input type="radio" name="q7" value="wrong"> Encapsulation <br>
+                <input type="radio" name="q7" value="wrong"> Polymorphism <br>
+                <input type="radio" name="q7" value="correct"> Abstraction <br>
+                <input type="radio" name="q7" value="wrong"> Inheritance <br>
+            </div>
+            <div class="question">
+                <p>8. (Hard) What is "Cyclomatic Complexity" in software engineering?</p>
+                <input type="radio" name="q8" value="correct"> A measure of a program’s control flow complexity <br>
+                <input type="radio" name="q8" value="wrong"> The number of lines of code in a program <br>
+                <input type="radio" name="q8" value="wrong"> The number of bugs per 1000 lines of code <br>
+                <input type="radio" name="q8" value="wrong"> The time taken to develop software <br>
+            </div>
+            <div class="question">
+                <p>9. (Hard) What is the major drawback of the Waterfall model?</p>
+                <input type="radio" name="q9" value="wrong"> It is difficult to document <br>
+                <input type="radio" name="q9" value="correct"> It does not handle changes well after the development phase <br>
+                <input type="radio" name="q9" value="wrong"> It requires too many developers <br>
+                <input type="radio" name="q9" value="wrong"> It cannot be used for large projects <br>
+            </div>
+            <div class="question">
+                <p>10. (Hard) Which of these is NOT a principle of software design?</p>
+                <input type="radio" name="q10" value="wrong"> Low coupling and high cohesion <br>
+                <input type="radio" name="q10" value="wrong"> Separation of concerns <br>
+                <input type="radio" name="q10" value="wrong"> Design for reusability <br>
+                <input type="radio" name="q10" value="correct"> Increasing software complexity <br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+</body>
+<script src="script.js"></script>
+<script>
+    function calculateScore() {
+        let score = 0;
+        let answers = document.querySelectorAll('input[type=radio]:checked');
+        answers.forEach(ans => {
+            if (ans.value === "correct") score++;
+        });
+        localStorage.setItem("quizScore", score);
+        window.location.href = "result.html";
+    }
+</script>
+</html>

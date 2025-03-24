@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Quantum Computing & Cryptography Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Quantum Computing & Cryptography Quiz</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. Which fundamental unit of information is used in quantum computing?</p>
+                <input type="radio" name="q1" value="wrong"> Byte <br>
+                <input type="radio" name="q1" value="wrong"> Bit <br>
+                <input type="radio" name="q1" value="correct"> Qubit <br>
+                <input type="radio" name="q1" value="wrong"> Quantum Register <br>
+            </div>
+            <div class="question">
+                <p>2. What is quantum superposition?</p>
+                <input type="radio" name="q2" value="wrong"> The ability of a qubit to be in multiple states at once <br>
+                <input type="radio" name="q2" value="correct"> The ability of a qubit to be in both 0 and 1 simultaneously <br>
+                <input type="radio" name="q2" value="wrong"> The collapsing of a qubit into a definite state <br>
+                <input type="radio" name="q2" value="wrong"> The interaction between multiple qubits <br>
+            </div>
+            <div class="question">
+                <p>3. Which quantum algorithm is known for factoring large numbers exponentially faster than classical algorithms?</p>
+                <input type="radio" name="q3" value="wrong"> Grover’s Algorithm <br>
+                <input type="radio" name="q3" value="wrong"> Bellman’s Algorithm <br>
+                <input type="radio" name="q3" value="correct"> Shor’s Algorithm <br>
+                <input type="radio" name="q3" value="wrong"> RSA Algorithm <br>
+            </div>
+            <div class="question">
+                <p>4. Which quantum phenomenon is used in quantum key distribution (QKD)?</p>
+                <input type="radio" name="q4" value="correct"> Quantum Entanglement <br>
+                <input type="radio" name="q4" value="wrong"> Quantum Tunneling <br>
+                <input type="radio" name="q4" value="wrong"> Quantum Decoherence <br>
+                <input type="radio" name="q4" value="wrong"> Quantum Interference <br>
+            </div>
+            <div class="question">
+                <p>5. What does the BB84 protocol achieve?</p>
+                <input type="radio" name="q5" value="wrong"> Faster quantum computations <br>
+                <input type="radio" name="q5" value="correct"> Secure quantum key exchange <br>
+                <input type="radio" name="q5" value="wrong"> Factoring large numbers <br>
+                <input type="radio" name="q5" value="wrong"> Breaking classical cryptography <br>
+            </div>
+            <div class="question">
+                <p>6. (Hard) What is the main challenge in building large-scale quantum computers?</p>
+                <input type="radio" name="q6" value="wrong"> Lack of computing power <br>
+                <input type="radio" name="q6" value="correct"> Quantum Decoherence and Noise <br>
+                <input type="radio" name="q6" value="wrong"> Lack of funding <br>
+                <input type="radio" name="q6" value="wrong"> Slow classical processors <br>
+            </div>
+            <div class="question">
+                <p>7. (Hard) How does Grover’s Algorithm impact cryptography?</p>
+                <input type="radio" name="q7" value="correct"> It speeds up the search process, making brute-force attacks on encryption more efficient <br>
+                <input type="radio" name="q7" value="wrong"> It weakens classical encryption protocols <br>
+                <input type="radio" name="q7" value="wrong"> It provides a secure method for encrypting quantum data <br>
+                <input type="radio" name="q7" value="wrong"> It prevents classical attacks on encryption <br>
+            </div>
+            <div class="question">
+                <p>8. (Hard) Why is post-quantum cryptography important?</p>
+                <input type="radio" name="q8" value="wrong"> It helps classical computers become faster <br>
+                <input type="radio" name="q8" value="wrong"> It uses quantum computers to secure current cryptographic methods <br>
+                <input type="radio" name="q8" value="correct"> It protects data from potential quantum attacks that could break current encryption <br>
+                <input type="radio" name="q8" value="wrong"> It replaces all classical encryption with quantum encryption <br>
+            </div>
+            <div class="question">
+                <p>9. Which encryption method is considered quantum-resistant?</p>
+                <input type="radio" name="q9" value="wrong"> RSA <br>
+                <input type="radio" name="q9" value="wrong"> AES-256 <br>
+                <input type="radio" name="q9" value="correct"> Lattice-Based Cryptography <br>
+                <input type="radio" name="q9" value="wrong"> Diffie-Hellman <br>
+            </div>
+            <div class="question">
+                <p>10. What is quantum entanglement?</p>
+                <input type="radio" name="q10" value="wrong"> The process of breaking encryption using a quantum computer <br>
+                <input type="radio" name="q10" value="correct"> A phenomenon where two qubits become correlated, regardless of distance <br>
+                <input type="radio" name="q10" value="wrong"> The loss of quantum state due to interference <br>
+                <input type="radio" name="q10" value="wrong"> The use of quantum gates for computation <br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+</body>
+<script src="script.js"></script>
+<script>
+    function calculateScore() {
+        let score = 0;
+        let answers = document.querySelectorAll('input[type=radio]:checked');
+        answers.forEach(ans => {
+            if (ans.value === "correct") score++;
+        });
+        localStorage.setItem("quizScore", score);
+        window.location.href = "result.html";
+    }
+</script>
+</html>

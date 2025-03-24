@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Cloud Computing Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Cloud Computing Quiz</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. What is Cloud Computing?</p>
+                <input type="radio" name="q1" value="wrong"> A type of software development technique <br>
+                <input type="radio" name="q1" value="correct"> The use of remote servers to store, manage, and process data <br>
+                <input type="radio" name="q1" value="wrong"> A method of securing computer systems <br>
+                <input type="radio" name="q1" value="wrong"> A type of hardware used in data centers <br>
+            </div>
+            <div class="question">
+                <p>2. Which of the following is a popular cloud computing provider?</p>
+                <input type="radio" name="q2" value="correct"> Microsoft Azure <br>
+                <input type="radio" name="q2" value="wrong"> Adobe Photoshop <br>
+                <input type="radio" name="q2" value="wrong"> Windows Media Player <br>
+                <input type="radio" name="q2" value="wrong"> VLC Media Player <br>
+            </div>
+            <div class="question">
+                <p>3. Which cloud model provides shared resources for a specific organization or community?</p>
+                <input type="radio" name="q3" value="wrong"> Public Cloud <br>
+                <input type="radio" name="q3" value="wrong"> Private Cloud <br>
+                <input type="radio" name="q3" value="wrong"> Hybrid Cloud <br>
+                <input type="radio" name="q3" value="correct"> Community Cloud <br>
+            </div>
+            <div class="question">
+                <p>4. What does SaaS stand for in cloud computing?</p>
+                <input type="radio" name="q4" value="correct"> Software as a Service <br>
+                <input type="radio" name="q4" value="wrong"> Storage as a Service <br>
+                <input type="radio" name="q4" value="wrong"> Security as a Service <br>
+                <input type="radio" name="q4" value="wrong"> System as a Service <br>
+            </div>
+            <div class="question">
+                <p>5. Which of the following is NOT a benefit of cloud computing?</p>
+                <input type="radio" name="q5" value="wrong"> Scalability <br>
+                <input type="radio" name="q5" value="wrong"> Cost savings <br>
+                <input type="radio" name="q5" value="correct"> Dependency on an internet connection <br>
+                <input type="radio" name="q5" value="wrong"> Automatic software updates <br>
+            </div>
+            <div class="question">
+                <p>6. What is the main difference between IaaS and PaaS?</p>
+                <input type="radio" name="q6" value="correct"> IaaS provides virtual machines, while PaaS provides a development environment <br>
+                <input type="radio" name="q6" value="wrong"> IaaS is used for security, while PaaS is used for storage <br>
+                <input type="radio" name="q6" value="wrong"> PaaS provides virtual machines, while IaaS provides databases <br>
+                <input type="radio" name="q6" value="wrong"> There is no difference <br>
+            </div>
+            <div class="question">
+                <p>7. In cloud computing, which technology is commonly used for virtualization?</p>
+                <input type="radio" name="q7" value="wrong"> HTML <br>
+                <input type="radio" name="q7" value="wrong"> Java <br>
+                <input type="radio" name="q7" value="correct"> Hypervisor <br>
+                <input type="radio" name="q7" value="wrong"> Python <br>
+            </div>
+            <div class="question">
+                <p>8. (Hard) Which of the following security risks is most associated with multi-tenant cloud environments?</p>
+                <input type="radio" name="q8" value="wrong"> Phishing attacks <br>
+                <input type="radio" name="q8" value="correct"> Data leakage due to shared resources <br>
+                <input type="radio" name="q8" value="wrong"> Hardware failure <br>
+                <input type="radio" name="q8" value="wrong"> Power outages <br>
+            </div>
+            <div class="question">
+                <p>9. (Hard) What is the primary function of an Orchestration Tool in cloud computing?</p>
+                <input type="radio" name="q9" value="correct"> Managing and automating cloud resources <br>
+                <input type="radio" name="q9" value="wrong"> Securing cloud applications <br>
+                <input type="radio" name="q9" value="wrong"> Running machine learning models <br>
+                <input type="radio" name="q9" value="wrong"> Monitoring network speed <br>
+            </div>
+            <div class="question">
+                <p>10. (Hard) In cloud computing, what is containerization, and how does it differ from virtualization?</p>
+                <input type="radio" name="q10" value="correct"> It is a form of lightweight virtualization where applications run in isolated containers instead of full VMs <br>
+                <input type="radio" name="q10" value="wrong"> It is another term for IaaS <br>
+                <input type="radio" name="q10" value="wrong"> It requires multiple operating systems to run simultaneously <br>
+                <input type="radio" name="q10" value="wrong"> It is used only for serverless computing <br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+</body>
+<script src="script.js"></script>
+<script>
+    function calculateScore() {
+        let score = 0;
+        let answers = document.querySelectorAll('input[type=radio]:checked');
+        answers.forEach(ans => {
+            if (ans.value === "correct") score++;
+        });
+        localStorage.setItem("quizScore", score);
+        window.location.href = "result.html";
+    }
+</script>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Blockchain Technology Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Blockchain Technology Quiz</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. What is Blockchain?</p>
+                <input type="radio" name="q1" value="wrong"> A centralized database <br>
+                <input type="radio" name="q1" value="correct"> A decentralized and distributed ledger <br>
+                <input type="radio" name="q1" value="wrong"> A type of cryptocurrency <br>
+                <input type="radio" name="q1" value="wrong"> A security protocol <br>
+            </div>
+            <div class="question">
+                <p>2. Which of the following best describes how transactions are added to a blockchain?</p>
+                <input type="radio" name="q2" value="wrong"> By a single trusted authority <br>
+                <input type="radio" name="q2" value="wrong"> By any user in the network <br>
+                <input type="radio" name="q2" value="correct"> By network participants through consensus mechanisms <br>
+                <input type="radio" name="q2" value="wrong"> By the creator of the blockchain <br>
+            </div>
+            <div class="question">
+                <p>3. What is the primary benefit of using Blockchain technology?</p>
+                <input type="radio" name="q3" value="correct"> Increased security and transparency <br>
+                <input type="radio" name="q3" value="wrong"> Faster internet speeds <br>
+                <input type="radio" name="q3" value="wrong"> Reducing software costs <br>
+                <input type="radio" name="q3" value="wrong"> Better gaming performance <br>
+            </div>
+            <div class="question">
+                <p>4. Which consensus mechanism is widely used in Bitcoin?</p>
+                <input type="radio" name="q4" value="wrong"> Proof of Stake (PoS) <br>
+                <input type="radio" name="q4" value="correct"> Proof of Work (PoW) <br>
+                <input type="radio" name="q4" value="wrong"> Delegated Proof of Stake (DPoS) <br>
+                <input type="radio" name="q4" value="wrong"> Byzantine Fault Tolerance (BFT) <br>
+            </div>
+            <div class="question">
+                <p>5. What is a smart contract?</p>
+                <input type="radio" name="q5" value="wrong"> A digital currency like Bitcoin <br>
+                <input type="radio" name="q5" value="correct"> A self-executing contract with predefined rules stored on a blockchain <br>
+                <input type="radio" name="q5" value="wrong"> A legal agreement signed online <br>
+                <input type="radio" name="q5" value="wrong"> A software to hack blockchains <br>
+            </div>
+            <div class="question">
+                <p>6. What does a "block" in a blockchain contain?</p>
+                <input type="radio" name="q6" value="wrong"> A single transaction only <br>
+                <input type="radio" name="q6" value="wrong"> Only the hash of the previous block <br>
+                <input type="radio" name="q6" value="correct"> A group of transactions, a timestamp, and the previous block’s hash <br>
+                <input type="radio" name="q6" value="wrong"> Encrypted user passwords <br>
+            </div>
+            <div class="question">
+                <p>7. Which of the following is NOT a type of blockchain?</p>
+                <input type="radio" name="q7" value="wrong"> Public blockchain <br>
+                <input type="radio" name="q7" value="wrong"> Private blockchain <br>
+                <input type="radio" name="q7" value="correct"> Traditional blockchain <br>
+                <input type="radio" name="q7" value="wrong"> Consortium blockchain <br>
+            </div>
+            <div class="question">
+                <p>8. (Hard) What is the main limitation of Proof of Work (PoW)?</p>
+                <input type="radio" name="q8" value="wrong"> It is not secure enough <br>
+                <input type="radio" name="q8" value="wrong"> It requires human intervention <br>
+                <input type="radio" name="q8" value="correct"> It consumes a lot of energy and requires high computational power <br>
+                <input type="radio" name="q8" value="wrong"> It cannot be used in financial transactions <br>
+            </div>
+            <div class="question">
+                <p>9. (Hard) What is a "51% attack" in blockchain?</p>
+                <input type="radio" name="q9" value="wrong"> When 51% of users leave the network <br>
+                <input type="radio" name="q9" value="wrong"> When 51% of nodes go offline <br>
+                <input type="radio" name="q9" value="correct"> When a single entity controls more than 50% of the mining power and can manipulate transactions <br>
+                <input type="radio" name="q9" value="wrong"> When blockchain transactions take more than 51 minutes to confirm <br>
+            </div>
+            <div class="question">
+                <p>10. (Hard) In Ethereum, what is the purpose of "gas"?</p>
+                <input type="radio" name="q10" value="wrong"> To store cryptocurrency in a wallet <br>
+                <input type="radio" name="q10" value="wrong"> To verify user identity <br>
+                <input type="radio" name="q10" value="wrong"> To create a blockchain fork <br>
+                <input type="radio" name="q10" value="correct"> To measure computational effort required for executing transactions and smart contracts <br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+</body>
+<script src="script.js"></script>
+<script>
+    function calculateScore() {
+        let score = 0;
+        let answers = document.querySelectorAll('input[type=radio]:checked');
+        answers.forEach(ans => {
+            if (ans.value === "correct") score++;
+        });
+        localStorage.setItem("quizScore", score);
+        window.location.href = "result.html";
+    }
+</script>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheating Detected</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #49c5b6;
+            color: #000000;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        h1 {
+            font-size: 24px;
+            color: red;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 10px;
+            transition: 0.3s ease-in-out;
+        }
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cheating Detected!</h1>
+        <p>Our system detected that you switched tabs multiple times, which may indicate the use of unauthorized materials.</p>
+        <div class="buttons">
+            <button  onclick="redirect()" id="a">Retake test</button>
+            <button onclick="goHome()">Go to Home</button>
+            <button onclick="go()">report an issue</button>
+        </div>
+    </div>
+    
+    <script>
+         const number = localStorage.getItem("selectedTest");
+        function redirect(){
+            if (number && !isNaN(number)) {
+                window.location.href = number + ".html";
+            } else {
+                alert("Error: No test selected.");
+            }
+            }
+        function goHome() {
+            window.location.href = 'index.html'; // Change to the home page URL
+        }
+        function go(){
+            window.location.href= 'https://tally.so/r/mY9jJv';
+        }
+    </script>
+</body>
+</html>

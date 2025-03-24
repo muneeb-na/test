@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Java Quiz</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>SQL Quiz</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. Which SQL statement is used to fetch all records from a table?</p>
+                <input type="radio" name="q1" value="wrong"> GET * FROM table_name; <br>
+                <input type="radio" name="q1" value="correct"> SELECT * FROM table_name; <br>
+                <input type="radio" name="q1" value="wrong"> SHOW * FROM table_name; <br>
+                <input type="radio" name="q1" value="wrong"> RETRIEVE * FROM table_name; <br>
+            </div>
+            <div class="question">
+                <p>2. Which SQL clause is used to filter records based on a condition?</p>
+                <input type="radio" name="q2" value="wrong"> ORDER BY <br>
+                <input type="radio" name="q2" value="correct"> WHERE <br>
+                <input type="radio" name="q2" value="wrong"> GROUP BY <br>
+                <input type="radio" name="q2" value="wrong"> HAVING <br>
+            </div>
+            <div class="question">
+                <p>3. Which SQL keyword is used to remove duplicate records from a result set?</p>
+                <input type="radio" name="q3" value="wrong"> DELETE <br>
+                <input type="radio" name="q3" value="wrong"> DISTINCTROW <br>
+                <input type="radio" name="q3" value="correct"> DISTINCT <br>
+                <input type="radio" name="q3" value="wrong"> UNIQUE <br>
+            </div>
+            <div class="question">
+                <p>4. Which SQL function is used to find the total number of records in a table?</p>
+                <input type="radio" name="q4" value="wrong"> SUM() <br>
+                <input type="radio" name="q4" value="wrong"> AVG() <br>
+                <input type="radio" name="q4" value="wrong"> COUNT() <br>
+                <input type="radio" name="q4" value="correct"> COUNT(*) <br>
+            </div>
+            <div class="question">
+                <p>5. Which SQL clause is used to sort the result set?</p>
+                <input type="radio" name="q5" value="wrong"> SORT BY <br>
+                <input type="radio" name="q5" value="correct"> ORDER BY <br>
+                <input type="radio" name="q5" value="wrong"> ARRANGE BY <br>
+                <input type="radio" name="q5" value="wrong"> FILTER BY <br>
+            </div>
+            <div class="question">
+                <p>6. Which SQL statement is used to modify an existing record in a table?</p>
+                <input type="radio" name="q6" value="wrong"> MODIFY <br>
+                <input type="radio" name="q6" value="wrong"> CHANGE <br>
+                <input type="radio" name="q6" value="wrong"> UPDATE SET <br>
+                <input type="radio" name="q6" value="correct"> UPDATE <br>
+            </div>
+            <div class="question">
+                <p>7. Which SQL query returns the second-highest salary from the "employees" table?</p>
+                <input type="radio" name="q7" value="wrong"> SELECT MAX(salary) FROM employees; <br>
+                <input type="radio" name="q7" value="wrong"> SELECT salary FROM employees ORDER BY salary DESC LIMIT 2; <br>
+                <input type="radio" name="q7" value="correct"> SELECT MAX(salary) FROM employees WHERE salary < (SELECT MAX(salary) FROM employees); <br>
+                <input type="radio" name="q7" value="wrong"> SELECT salary FROM employees LIMIT 1 OFFSET 2; <br>
+            </div>
+            <div class="question">
+                <p>8. Which SQL JOIN returns only the common records between two tables?</p>
+                <input type="radio" name="q8" value="correct"> INNER JOIN <br>
+                <input type="radio" name="q8" value="wrong"> LEFT JOIN <br>
+                <input type="radio" name="q8" value="wrong"> RIGHT JOIN <br>
+                <input type="radio" name="q8" value="wrong"> FULL JOIN <br>
+            </div>
+            <div class="question">
+                <p>9. Which statement is TRUE about database normalization?</p>
+                <input type="radio" name="q9" value="wrong"> Normalization is used to increase data redundancy. <br>
+                <input type="radio" name="q9" value="correct"> Normalization reduces redundancy and improves data integrity. <br>
+                <input type="radio" name="q9" value="wrong"> Denormalization is always better than normalization. <br>
+                <input type="radio" name="q9" value="wrong"> Normalization removes all primary keys. <br>
+            </div>
+            <div class="question">
+                <p>10. What is the purpose of the HAVING clause in SQL?</p>
+                <input type="radio" name="q10" value="wrong"> It is used instead of the WHERE clause. <br>
+                <input type="radio" name="q10" value="wrong"> It filters records before aggregation. <br>
+                <input type="radio" name="q10" value="correct"> It filters groups of records after aggregation. <br>
+                <input type="radio" name="q10" value="wrong"> It is used for sorting results. <br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+</body>
+<script src="script.js"></script>
+<script>
+    function calculateScore() {
+        let score = 0;
+        let answers = document.querySelectorAll('input[type=radio]:checked');
+        answers.forEach(ans => {
+            if (ans.value === "correct") score++;
+        });
+        localStorage.setItem("quizScore", score);
+        window.location.href = "result.html";
+    }
+</script>
+</html>

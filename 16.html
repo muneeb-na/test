@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Cybersecurity Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Cybersecurity Quiz</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. What does HTTPS stand for?</p>
+                <input type="radio" name="q1" value="correct"> HyperText Transfer Protocol Secure <br>
+                <input type="radio" name="q1" value="wrong"> HyperText Transmission Protocol System <br>
+                <input type="radio" name="q1" value="wrong"> High Technology Transfer Protocol Security <br>
+                <input type="radio" name="q1" value="wrong"> Hyper Transfer Technical Security <br>
+            </div>
+            <div class="question">
+                <p>2. Which of the following is a strong password?</p>
+                <input type="radio" name="q2" value="wrong"> password123 <br>
+                <input type="radio" name="q2" value="wrong"> 123456 <br>
+                <input type="radio" name="q2" value="correct"> P@$$w0rd!_2025 <br>
+                <input type="radio" name="q2" value="wrong"> admin <br>
+            </div>
+            <div class="question">
+                <p>3. What is phishing?</p>
+                <input type="radio" name="q3" value="wrong"> A type of firewall <br>
+                <input type="radio" name="q3" value="wrong"> A method of encrypting data <br>
+                <input type="radio" name="q3" value="correct"> A cyber attack that tricks users into revealing personal information <br>
+                <input type="radio" name="q3" value="wrong"> A programming language <br>
+            </div>
+            <div class="question">
+                <p>4. Which of the following is a common type of malware?</p>
+                <input type="radio" name="q4" value="wrong"> VPN <br>
+                <input type="radio" name="q4" value="wrong"> Firewall <br>
+                <input type="radio" name="q4" value="correct"> Trojan Horse <br>
+                <input type="radio" name="q4" value="wrong"> Ethernet <br>
+            </div>
+            <div class="question">
+                <p>5. What is two-factor authentication (2FA)?</p>
+                <input type="radio" name="q5" value="wrong"> A method of hacking accounts <br>
+                <input type="radio" name="q5" value="wrong"> A process that requires two passwords <br>
+                <input type="radio" name="q5" value="correct"> A security measure that requires two forms of verification <br>
+                <input type="radio" name="q5" value="wrong"> A way to reset passwords <br>
+            </div>
+            <div class="question">
+                <p>6. What is the purpose of a firewall in cybersecurity?</p>
+                <input type="radio" name="q6" value="wrong"> To store passwords securely <br>
+                <input type="radio" name="q6" value="correct"> To prevent unauthorized access to a network <br>
+                <input type="radio" name="q6" value="wrong"> To increase internet speed <br>
+                <input type="radio" name="q6" value="wrong"> To create backups of data <br>
+            </div>
+            <div class="question">
+                <p>7. What does a DDoS attack do?</p>
+                <input type="radio" name="q7" value="wrong"> Encrypts files and demands ransom <br>
+                <input type="radio" name="q7" value="correct"> Overloads a network or server with traffic to make it unavailable <br>
+                <input type="radio" name="q7" value="wrong"> Steals login credentials <br>
+                <input type="radio" name="q7" value="wrong"> Hides user activity on the internet <br>
+            </div>
+            <div class="question">
+                <p>8. (Hard) Which encryption algorithm is considered the most secure for modern data protection?</p>
+                <input type="radio" name="q8" value="wrong"> DES <br>
+                <input type="radio" name="q8" value="wrong"> RSA <br>
+                <input type="radio" name="q8" value="correct"> AES <br>
+                <input type="radio" name="q8" value="wrong"> MD5 <br>
+            </div>
+            <div class="question">
+                <p>9. (Hard) Which cybersecurity framework is widely used for risk management and was developed by NIST?</p>
+                <input type="radio" name="q9" value="wrong"> ISO 27001 <br>
+                <input type="radio" name="q9" value="wrong"> COBIT <br>
+                <input type="radio" name="q9" value="correct"> NIST Cybersecurity Framework <br>
+                <input type="radio" name="q9" value="wrong"> ITIL <br>
+            </div>
+            <div class="question">
+                <p>10. (Hard) In a zero-trust security model, what is the main assumption about users and devices?</p>
+                <input type="radio" name="q10" value="wrong"> All users and devices inside the network are trusted by default <br>
+                <input type="radio" name="q10" value="wrong"> Only external users are considered untrusted <br>
+                <input type="radio" name="q10" value="correct"> No user or device is trusted, even inside the network <br>
+                <input type="radio" name="q10" value="wrong"> Trust is given based on physical location <br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+</body>
+<script src="script.js"></script>
+<script>
+    function calculateScore() {
+        let score = 0;
+        let answers = document.querySelectorAll('input[type=radio]:checked');
+        answers.forEach(ans => {
+            if (ans.value === "correct") score++;
+        });
+        localStorage.setItem("quizScore", score);
+        window.location.href = "result.html";
+    }
+</script>
+</html>

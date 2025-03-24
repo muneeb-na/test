@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Mobile Game Development Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Mobile Game Development Quiz</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. Which programming language is primarily used for Android game development in Unity?</p>
+                <input type="radio" name="q1" value="wrong"> Swift <br>
+                <input type="radio" name="q1" value="correct"> C# <br>
+                <input type="radio" name="q1" value="wrong"> Kotlin <br>
+                <input type="radio" name="q1" value="wrong"> Java <br>
+            </div>
+            <div class="question">
+                <p>2. Which mobile game engine is known for its cross-platform support and ease of use?</p>
+                <input type="radio" name="q2" value="wrong"> CryEngine <br>
+                <input type="radio" name="q2" value="correct"> Unity <br>
+                <input type="radio" name="q2" value="wrong"> Source 2 <br>
+                <input type="radio" name="q2" value="wrong"> RenderWare <br>
+            </div>
+            <div class="question">
+                <p>3. What is the main advantage of using the "sprite atlas" technique in mobile games?</p>
+                <input type="radio" name="q3" value="correct"> Reduces draw calls and improves performance <br>
+                <input type="radio" name="q3" value="wrong"> Increases resolution of textures <br>
+                <input type="radio" name="q3" value="wrong"> Helps in character animation <br>
+                <input type="radio" name="q3" value="wrong"> Prevents memory leaks <br>
+            </div>
+            <div class="question">
+                <p>4. Which tool is commonly used for monetization in mobile games?</p>
+                <input type="radio" name="q4" value="correct"> Google AdMob <br>
+                <input type="radio" name="q4" value="wrong"> Photoshop <br>
+                <input type="radio" name="q4" value="wrong"> Unreal Engine <br>
+                <input type="radio" name="q4" value="wrong"> Xcode <br>
+            </div>
+            <div class="question">
+                <p>5. What is the main reason mobile games use object pooling?</p>
+                <input type="radio" name="q5" value="wrong"> To create new objects quickly <br>
+                <input type="radio" name="q5" value="correct"> To reduce memory allocation and improve performance <br>
+                <input type="radio" name="q5" value="wrong"> To store user data <br>
+                <input type="radio" name="q5" value="wrong"> To enhance network security <br>
+            </div>
+            <div class="question">
+                <p>6. What does "delta time" help with in mobile game development?</p>
+                <input type="radio" name="q6" value="correct"> Smoothing frame rate-independent movement <br>
+                <input type="radio" name="q6" value="wrong"> Increasing battery life <br>
+                <input type="radio" name="q6" value="wrong"> Reducing sound lag <br>
+                <input type="radio" name="q6" value="wrong"> Fixing resolution issues <br>
+            </div>
+            <div class="question">
+                <p>7. (Hard) What is "texture compression" used for in mobile games?</p>
+                <input type="radio" name="q7" value="wrong"> Reducing character animation complexity <br>
+                <input type="radio" name="q7" value="correct"> Decreasing memory usage while maintaining visual quality <br>
+                <input type="radio" name="q7" value="wrong"> Improving network latency <br>
+                <input type="radio" name="q7" value="wrong"> Increasing texture resolution dynamically <br>
+            </div>
+            <div class="question">
+                <p>8. (Hard) What is a major drawback of using real-time lighting in mobile games?</p>
+                <input type="radio" name="q8" value="correct"> High performance cost leading to lower FPS <br>
+                <input type="radio" name="q8" value="wrong"> Inability to create shadows <br>
+                <input type="radio" name="q8" value="wrong"> It only works on iOS devices <br>
+                <input type="radio" name="q8" value="wrong"> It requires high-end GPUs on PC <br>
+            </div>
+            <div class="question">
+                <p>9. (Hard) In mobile game networking, what is the biggest challenge of using UDP over TCP?</p>
+                <input type="radio" name="q9" value="wrong"> It has built-in error correction <br>
+                <input type="radio" name="q9" value="correct"> Packet loss and unreliable data transmission <br>
+                <input type="radio" name="q9" value="wrong"> It is slower than TCP <br>
+                <input type="radio" name="q9" value="wrong"> It is not supported on mobile devices <br>
+            </div>
+            <div class="question">
+                <p>10. Which API is commonly used for handling touch input in mobile games?</p>
+                <input type="radio" name="q10" value="wrong"> DirectX <br>
+                <input type="radio" name="q10" value="correct"> TouchEvent API <br>
+                <input type="radio" name="q10" value="wrong"> OpenGL <br>
+                <input type="radio" name="q10" value="wrong"> WebRTC <br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+</body>
+<script src="script.js"></script>
+<script>
+    function calculateScore() {
+        let score = 0;
+        let answers = document.querySelectorAll('input[type=radio]:checked');
+        answers.forEach(ans => {
+            if (ans.value === "correct") score++;
+        });
+        localStorage.setItem("quizScore", score);
+        window.location.href = "result.html";
+    }
+</script>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Google Analytics Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Google Analytics Quiz</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. What is the primary purpose of Google Analytics?</p>
+                <input type="radio" name="q1" value="wrong"> To create websites <br>
+                <input type="radio" name="q1" value="correct"> To track and analyze website traffic <br>
+                <input type="radio" name="q1" value="wrong"> To store website backups <br>
+                <input type="radio" name="q1" value="wrong"> To rank websites on Google <br>
+            </div>
+            <div class="question">
+                <p>2. In Google Analytics, what is a "session"?</p>
+                <input type="radio" name="q2" value="correct"> A single visit by a user within a specific timeframe <br>
+                <input type="radio" name="q2" value="wrong"> The number of pages viewed per visit <br>
+                <input type="radio" name="q2" value="wrong"> The total number of website users <br>
+                <input type="radio" name="q2" value="wrong"> A unique identifier assigned to each visitor <br>
+            </div>
+            <div class="question">
+                <p>3. What is the default session timeout duration in Google Analytics?</p>
+                <input type="radio" name="q3" value="wrong"> 10 minutes <br>
+                <input type="radio" name="q3" value="correct"> 30 minutes <br>
+                <input type="radio" name="q3" value="wrong"> 1 hour <br>
+                <input type="radio" name="q3" value="wrong"> 24 hours <br>
+            </div>
+            <div class="question">
+                <p>4. What metric in Google Analytics helps you understand how long users stay on your website?</p>
+                <input type="radio" name="q4" value="wrong"> Bounce Rate <br>
+                <input type="radio" name="q4" value="correct"> Average Session Duration <br>
+                <input type="radio" name="q4" value="wrong"> Click-Through Rate <br>
+                <input type="radio" name="q4" value="wrong"> Page Speed <br>
+            </div>
+            <div class="question">
+                <p>5. What does the "Bounce Rate" in Google Analytics measure?</p>
+                <input type="radio" name="q5" value="correct"> The percentage of visitors who leave after viewing only one page <br>
+                <input type="radio" name="q5" value="wrong"> The total number of returning users <br>
+                <input type="radio" name="q5" value="wrong"> The number of pages visited per session <br>
+                <input type="radio" name="q5" value="wrong"> The percentage of users who complete a purchase <br>
+            </div>
+            <div class="question">
+                <p>6. What is the purpose of UTM parameters in Google Analytics?</p>
+                <input type="radio" name="q6" value="wrong"> To speed up website loading time <br>
+                <input type="radio" name="q6" value="correct"> To track the source and medium of traffic <br>
+                <input type="radio" name="q6" value="wrong"> To improve website security <br>
+                <input type="radio" name="q6" value="wrong"> To measure the number of website users <br>
+            </div>
+            <div class="question">
+                <p>7. What is "Event Tracking" in Google Analytics?</p>
+                <input type="radio" name="q7" value="wrong"> A feature that tracks sales revenue <br>
+                <input type="radio" name="q7" value="correct"> A method to track user interactions like clicks, downloads, and video plays <br>
+                <input type="radio" name="q7" value="wrong"> A tool to block bots from visiting your website <br>
+                <input type="radio" name="q7" value="wrong"> A feature that shows the total number of users visiting a site <br>
+            </div>
+            <div class="question">
+                <p>8. (Hard) Which report in Google Analytics helps you understand where users are dropping off in a sales funnel?</p>
+                <input type="radio" name="q8" value="wrong"> Acquisition Report <br>
+                <input type="radio" name="q8" value="wrong"> Behavior Flow Report <br>
+                <input type="radio" name="q8" value="wrong"> Exit Pages Report <br>
+                <input type="radio" name="q8" value="correct"> Goal Flow Report <br>
+            </div>
+            <div class="question">
+                <p>9. (Hard) In Google Analytics 4 (GA4), what has replaced "Bounce Rate"?</p>
+                <input type="radio" name="q9" value="wrong"> Active Engagement Score <br>
+                <input type="radio" name="q9" value="correct"> Engagement Rate <br>
+                <input type="radio" name="q9" value="wrong"> Clickthrough Rate <br>
+                <input type="radio" name="q9" value="wrong"> Exit Rate <br>
+            </div>
+            <div class="question">
+                <p>10. (Hard) What is a "Measurement Protocol" in Google Analytics?</p>
+                <input type="radio" name="q10" value="wrong"> A set of guidelines for improving website performance <br>
+                <input type="radio" name="q10" value="correct"> A way to send data to Google Analytics from devices other than websites and apps <br>
+                <input type="radio" name="q10" value="wrong"> A tool to analyze heatmaps on a webpage <br>
+                <input type="radio" name="q10" value="wrong"> A security feature that prevents spam traffic <br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+</body>
+<script src="script.js"></script>
+<script>
+    function calculateScore() {
+        let score = 0;
+        let answers = document.querySelectorAll('input[type=radio]:checked');
+        answers.forEach(ans => {
+            if (ans.value === "correct") score++;
+        });
+        localStorage.setItem("quizScore", score);
+        window.location.href = "result.html";
+    }
+    
+</script>
+</html>

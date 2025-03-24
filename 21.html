@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Game Audio & Sound Design Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Game Audio & Sound Design Quiz</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. What is the primary role of background music in a video game?</p>
+                <input type="radio" name="q1" value="wrong"> To distract the player <br>
+                <input type="radio" name="q1" value="correct"> To enhance the emotional impact and atmosphere <br>
+                <input type="radio" name="q1" value="wrong"> To replace dialogue <br>
+                <input type="radio" name="q1" value="wrong"> To make the game louder <br>
+            </div>
+            <div class="question">
+                <p>2. Which of the following is an example of diegetic sound in a game?</p>
+                <input type="radio" name="q2" value="wrong"> Background music <br>
+                <input type="radio" name="q2" value="correct"> A character's footsteps <br>
+                <input type="radio" name="q2" value="wrong"> The game’s menu sound <br>
+                <input type="radio" name="q2" value="wrong"> A narrator’s voice-over <br>
+            </div>
+            <div class="question">
+                <p>3. What is the purpose of dynamic audio in games?</p>
+                <input type="radio" name="q3" value="wrong"> To randomly change the volume of sounds <br>
+                <input type="radio" name="q3" value="wrong"> To make sound effects louder <br>
+                <input type="radio" name="q3" value="correct"> To adjust the music and sound effects based on in-game events <br>
+                <input type="radio" name="q3" value="wrong"> To play music continuously without changes <br>
+            </div>
+            <div class="question">
+                <p>4. Which audio format is commonly used for high-quality in-game sound effects?</p>
+                <input type="radio" name="q4" value="wrong"> MP3 <br>
+                <input type="radio" name="q4" value="correct"> WAV <br>
+                <input type="radio" name="q4" value="wrong"> TXT <br>
+                <input type="radio" name="q4" value="wrong"> PDF <br>
+            </div>
+            <div class="question">
+                <p>5. Which audio technique allows game sounds to seem like they are coming from a specific direction?</p>
+                <input type="radio" name="q5" value="wrong"> Looping <br>
+                <input type="radio" name="q5" value="correct"> 3D Spatial Audio <br>
+                <input type="radio" name="q5" value="wrong"> Mono Sound <br>
+                <input type="radio" name="q5" value="wrong"> Compression <br>
+            </div>
+            <div class="question">
+                <p>6. Which of these is NOT a common tool for game audio design?</p>
+                <input type="radio" name="q6" value="wrong"> FMOD <br>
+                <input type="radio" name="q6" value="wrong"> Wwise <br>
+                <input type="radio" name="q6" value="wrong"> Unity <br>
+                <input type="radio" name="q6" value="correct"> Adobe Photoshop <br>
+            </div>
+            <div class="question">
+                <p>7. (Hard) What is "occlusion" in game audio?</p>
+                <input type="radio" name="q7" value="wrong"> A method for looping background music <br>
+                <input type="radio" name="q7" value="correct"> The dampening of sound when blocked by objects <br>
+                <input type="radio" name="q7" value="wrong"> A way to add reverb to audio <br>
+                <input type="radio" name="q7" value="wrong"> The delay effect in a soundtrack <br>
+            </div>
+            <div class="question">
+                <p>8. (Hard) What does "convolution reverb" do in game audio design?</p>
+                <input type="radio" name="q8" value="wrong"> It creates an echo effect for underwater levels <br>
+                <input type="radio" name="q8" value="correct"> It simulates realistic environmental reflections using real-world impulse responses <br>
+                <input type="radio" name="q8" value="wrong"> It removes background noise from dialogue <br>
+                <input type="radio" name="q8" value="wrong"> It increases the volume of all sounds in a game <br>
+            </div>
+            <div class="question">
+                <p>9. (Hard) Which of the following is an example of procedural audio in games?</p>
+                <input type="radio" name="q9" value="wrong"> Pre-recorded voice lines <br>
+                <input type="radio" name="q9" value="correct"> A gunshot sound effect that changes based on the environment <br>
+                <input type="radio" name="q9" value="wrong"> A looping background track <br>
+                <input type="radio" name="q9" value="wrong"> The start-up sound of a game console <br>
+            </div>
+            <div class="question">
+                <p>10. What is the main advantage of using middleware like FMOD or Wwise in game audio?</p>
+                <input type="radio" name="q10" value="wrong"> It eliminates the need for game sound designers <br>
+                <input type="radio" name="q10" value="correct"> It provides more control over adaptive and interactive sound <br>
+                <input type="radio" name="q10" value="wrong"> It makes music louder <br>
+                <input type="radio" name="q10" value="wrong"> It replaces all manual sound editing <br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+</body>
+<script src="script.js"></script>
+<script>
+    function calculateScore() {
+        let score = 0;
+        let answers = document.querySelectorAll('input[type=radio]:checked');
+        answers.forEach(ans => {
+            if (ans.value === "correct") score++;
+        });
+        localStorage.setItem("quizScore", score);
+        window.location.href = "result.html";
+    }
+</script>
+</html>

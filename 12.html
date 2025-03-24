@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Digital Marketing Quiz</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Microsoft Excel Quiz</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. Which of the following is NOT a valid data type in Excel?</p>
+                <input type="radio" name="q1" value="wrong"> Number <br>
+                <input type="radio" name="q1" value="wrong"> Text <br>
+                <input type="radio" name="q1" value="wrong"> Date <br>
+                <input type="radio" name="q1" value="correct"> Image <br>
+            </div>
+            <div class="question">
+                <p>2. What is the shortcut key to create a new workbook in Excel?</p>
+                <input type="radio" name="q2" value="correct"> Ctrl + N <br>
+                <input type="radio" name="q2" value="wrong"> Ctrl + S <br>
+                <input type="radio" name="q2" value="wrong"> Ctrl + O <br>
+                <input type="radio" name="q2" value="wrong"> Ctrl + W <br>
+            </div>
+            <div class="question">
+                <p>3. Which function is used to find the highest value in a range?</p>
+                <input type="radio" name="q3" value="wrong"> MIN() <br>
+                <input type="radio" name="q3" value="correct"> MAX() <br>
+                <input type="radio" name="q3" value="wrong"> AVERAGE() <br>
+                <input type="radio" name="q3" value="wrong"> SUM() <br>
+            </div>
+            <div class="question">
+                <p>4. Which symbol is used to start a formula in Excel?</p>
+                <input type="radio" name="q4" value="wrong"> @ <br>
+                <input type="radio" name="q4" value="correct"> = <br>
+                <input type="radio" name="q4" value="wrong"> # <br>
+                <input type="radio" name="q4" value="wrong"> & <br>
+            </div>
+            <div class="question">
+                <p>5. What will be the result of the formula =5+2*3 in Excel?</p>
+                <input type="radio" name="q5" value="wrong"> 21 <br>
+                <input type="radio" name="q5" value="correct"> 11 <br>
+                <input type="radio" name="q5" value="wrong"> 17 <br>
+                <input type="radio" name="q5" value="wrong"> 30 <br>
+            </div>
+            <div class="question">
+                <p>6. Which feature allows you to combine multiple cells into one larger cell?</p>
+                <input type="radio" name="q6" value="correct"> Merge & Center <br>
+                <input type="radio" name="q6" value="wrong"> Wrap Text <br>
+                <input type="radio" name="q6" value="wrong"> Conditional Formatting <br>
+                <input type="radio" name="q6" value="wrong"> Data Validation <br>
+            </div>
+            <div class="question">
+                <p>7. What does the Ctrl + Z shortcut do in Excel?</p>
+                <input type="radio" name="q7" value="wrong"> Redo the last action <br>
+                <input type="radio" name="q7" value="correct"> Undo the last action <br>
+                <input type="radio" name="q7" value="wrong"> Save the file <br>
+                <input type="radio" name="q7" value="wrong"> Copy the selected cell <br>
+            </div>
+            <div class="question">
+                <p>8. (Hard) Which function can be used to extract the last word from a text string in a cell?</p>
+                <input type="radio" name="q8" value="correct"> RIGHT() <br>
+                <input type="radio" name="q8" value="wrong"> LEFT() <br>
+                <input type="radio" name="q8" value="wrong"> MID() <br>
+                <input type="radio" name="q8" value="wrong"> FIND() <br>
+            </div>
+            <div class="question">
+                <p>9. (Hard) Which of the following is TRUE about Excel’s circular references?</p>
+                <input type="radio" name="q9" value="wrong"> They improve calculation speed <br>
+                <input type="radio" name="q9" value="correct"> They occur when a formula refers back to its own cell <br>
+                <input type="radio" name="q9" value="wrong"> Excel allows circular references by default <br>
+                <input type="radio" name="q9" value="wrong"> They are required for all financial models <br>
+            </div>
+            <div class="question">
+                <p>10. (Hard) What is the purpose of the INDIRECT() function in Excel?</p>
+                <input type="radio" name="q10" value="wrong"> It creates hyperlinks to other workbooks <br>
+                <input type="radio" name="q10" value="correct"> It returns the value of a cell specified by a text reference <br>
+                <input type="radio" name="q10" value="wrong"> It converts text to numbers <br>
+                <input type="radio" name="q10" value="wrong"> It removes empty spaces from text <br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+</body>
+<script src="script.js"></script>
+<script>
+    function calculateScore() {
+        let score = 0;
+        let answers = document.querySelectorAll('input[type=radio]:checked');
+        answers.forEach(ans => {
+            if (ans.value === "correct") score++;
+        });
+        localStorage.setItem("quizScore", score);
+        window.location.href = "result.html";
+    }
+</script>
+</html>

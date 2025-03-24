@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Structural Engineering Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Structural Engineering Quiz</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. What is the main purpose of structural engineering?</p>
+                <input type="radio" name="q1" value="wrong"> Designing electrical circuits <br>
+                <input type="radio" name="q1" value="correct"> Ensuring buildings and structures are safe and stable <br>
+                <input type="radio" name="q1" value="wrong"> Developing software applications <br>
+                <input type="radio" name="q1" value="wrong"> Managing construction projects <br>
+            </div>
+            <div class="question">
+                <p>2. Which material is most commonly used in modern structural engineering?</p>
+                <input type="radio" name="q2" value="wrong"> Wood <br>
+                <input type="radio" name="q2" value="correct"> Reinforced concrete <br>
+                <input type="radio" name="q2" value="wrong"> Plastic <br>
+                <input type="radio" name="q2" value="wrong"> Copper <br>
+            </div>
+            <div class="question">
+                <p>3. What does a structural engineer analyze?</p>
+                <input type="radio" name="q3" value="wrong"> Color of walls <br>
+                <input type="radio" name="q3" value="correct"> Forces, loads, and materials in a structure <br>
+                <input type="radio" name="q3" value="wrong"> Types of flooring <br>
+                <input type="radio" name="q3" value="wrong"> Wiring connections <br>
+            </div>
+            <div class="question">
+                <p>4. What is a common method used to test structural integrity?</p>
+                <input type="radio" name="q4" value="wrong"> Painting walls <br>
+                <input type="radio" name="q4" value="correct"> Load testing <br>
+                <input type="radio" name="q4" value="wrong"> Installing HVAC systems <br>
+                <input type="radio" name="q4" value="wrong"> Checking fire alarms <br>
+            </div>
+            <div class="question">
+                <p>5. Which of the following is a key factor in structural design?</p>
+                <input type="radio" name="q5" value="correct"> Load distribution <br>
+                <input type="radio" name="q5" value="wrong"> Paint durability <br>
+                <input type="radio" name="q5" value="wrong"> Furniture arrangement <br>
+                <input type="radio" name="q5" value="wrong"> Type of glass used in windows <br>
+            </div>
+            <div class="question">
+                <p>6. What is the primary force that a beam resists?</p>
+                <input type="radio" name="q6" value="wrong"> Torsion <br>
+                <input type="radio" name="q6" value="correct"> Bending <br>
+                <input type="radio" name="q6" value="wrong"> Shear <br>
+                <input type="radio" name="q6" value="wrong"> Compression <br>
+            </div>
+            <div class="question">
+                <p>7. What type of foundation is typically used for tall buildings?</p>
+                <input type="radio" name="q7" value="wrong"> Slab-on-grade <br>
+                <input type="radio" name="q7" value="wrong"> Strip footing <br>
+                <input type="radio" name="q7" value="correct"> Pile foundation <br>
+                <input type="radio" name="q7" value="wrong"> Floating foundation <br>
+            </div>
+            <div class="question">
+                <p>8. Which structural element carries the load from a beam to a foundation?</p>
+                <input type="radio" name="q8" value="wrong"> Slab <br>
+                <input type="radio" name="q8" value="wrong"> Truss <br>
+                <input type="radio" name="q8" value="correct"> Column <br>
+                <input type="radio" name="q8" value="wrong"> Roof <br>
+            </div>
+            <div class="question">
+                <p>9. What is the primary purpose of a retaining wall?</p>
+                <input type="radio" name="q9" value="correct"> To resist lateral soil pressure <br>
+                <input type="radio" name="q9" value="wrong"> To support a roof <br>
+                <input type="radio" name="q9" value="wrong"> To hold up windows <br>
+                <input type="radio" name="q9" value="wrong"> To distribute electrical wiring <br>
+            </div>
+            <div class="question">
+                <p>10. What is the main factor in determining the strength of a concrete mix?</p>
+                <input type="radio" name="q10" value="wrong"> The color of the mix <br>
+                <input type="radio" name="q10" value="correct"> The water-cement ratio <br>
+                <input type="radio" name="q10" value="wrong"> The amount of sand used <br>
+                <input type="radio" name="q10" value="wrong"> The temperature during mixing <br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+</body>
+<script>
+    function calculateScore() {
+        let score = 0;
+        let answers = document.querySelectorAll('input[type=radio]:checked');
+        answers.forEach(ans => {
+            if (ans.value === "correct") score++;
+        });
+        localStorage.setItem("quizScore", score);
+        window.location.href = "result.html";
+    }
+</script>
+</html>

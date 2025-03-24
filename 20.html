@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Game Development Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Game Development Quiz</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. Which game engine is known for its versatility and is widely used for both 2D and 3D games?</p>
+                <input type="radio" name="q1" value="wrong"> Blender <br>
+                <input type="radio" name="q1" value="correct"> Unity <br>
+                <input type="radio" name="q1" value="wrong"> Photoshop <br>
+                <input type="radio" name="q1" value="wrong"> GitHub <br>
+            </div>
+            <div class="question">
+                <p>2. What is the main purpose of a physics engine in a game?</p>
+                <input type="radio" name="q2" value="wrong"> To create sound effects <br>
+                <input type="radio" name="q2" value="wrong"> To generate high-resolution textures <br>
+                <input type="radio" name="q2" value="correct"> To simulate real-world physics like gravity and collision <br>
+                <input type="radio" name="q2" value="wrong"> To control character animations <br>
+            </div>
+            <div class="question">
+                <p>3. Which programming language is commonly used in Unreal Engine?</p>
+                <input type="radio" name="q3" value="wrong"> Java <br>
+                <input type="radio" name="q3" value="correct"> C++ <br>
+                <input type="radio" name="q3" value="wrong"> Python <br>
+                <input type="radio" name="q3" value="wrong"> Swift <br>
+            </div>
+            <div class="question">
+                <p>4. Which of the following is NOT a type of game AI behavior?</p>
+                <input type="radio" name="q4" value="wrong"> Pathfinding <br>
+                <input type="radio" name="q4" value="wrong"> Decision Trees <br>
+                <input type="radio" name="q4" value="correct"> Data Encryption <br>
+                <input type="radio" name="q4" value="wrong"> Finite State Machines <br>
+            </div>
+            <div class="question">
+                <p>5. Which file format is commonly used for 3D models in games?</p>
+                <input type="radio" name="q5" value="wrong"> .JPEG <br>
+                <input type="radio" name="q5" value="correct"> .FBX <br>
+                <input type="radio" name="q5" value="wrong"> .TXT <br>
+                <input type="radio" name="q5" value="wrong"> .MP3 <br>
+            </div>
+            <div class="question">
+                <p>6. Which aspect of game development ensures that a game is engaging and fun to play?</p>
+                <input type="radio" name="q6" value="correct"> Game design <br>
+                <input type="radio" name="q6" value="wrong"> Cloud computing <br>
+                <input type="radio" name="q6" value="wrong"> Database management <br>
+                <input type="radio" name="q6" value="wrong"> Network security <br>
+            </div>
+            <div class="question">
+                <p>7. Which technique is used to optimize game performance by displaying only what is necessary on screen?</p>
+                <input type="radio" name="q7" value="wrong"> Ray tracing <br>
+                <input type="radio" name="q7" value="wrong"> Anti-aliasing <br>
+                <input type="radio" name="q7" value="correct"> Level of Detail (LOD) <br>
+                <input type="radio" name="q7" value="wrong"> Parallax scrolling <br>
+            </div>
+            <div class="question">
+                <p>8. (Hard) What is the purpose of a "Quadtree" in game development?</p>
+                <input type="radio" name="q8" value="correct"> Efficiently managing spatial partitioning for large game worlds <br>
+                <input type="radio" name="q8" value="wrong"> Generating random game levels <br>
+                <input type="radio" name="q8" value="wrong"> Creating realistic water physics <br>
+                <input type="radio" name="q8" value="wrong"> Storing in-game character data <br>
+            </div>
+            <div class="question">
+                <p>9. (Hard) In rendering pipelines, what is the role of a "Z-buffer"?</p>
+                <input type="radio" name="q9" value="wrong"> Managing game music files <br>
+                <input type="radio" name="q9" value="correct"> Handling depth calculations to resolve object occlusion <br>
+                <input type="radio" name="q9" value="wrong"> Storing texture maps for 3D models <br>
+                <input type="radio" name="q9" value="wrong"> Reducing CPU usage in AI pathfinding <br>
+            </div>
+            <div class="question">
+                <p>10. (Hard) What is "G-buffer" in deferred rendering?</p>
+                <input type="radio" name="q10" value="wrong"> A technique for increasing game difficulty dynamically <br>
+                <input type="radio" name="q10" value="correct"> A buffer that stores multiple scene attributes (like normals, depth, etc.) for lighting calculations <br>
+                <input type="radio" name="q10" value="wrong"> A way to reduce polygon count in 3D models <br>
+                <input type="radio" name="q10" value="wrong"> A tool used for creating game UI <br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+</body>
+<script src="script.js"></script>
+<script>
+    function calculateScore() {
+        let score = 0;
+        let answers = document.querySelectorAll('input[type=radio]:checked');
+        answers.forEach(ans => {
+            if (ans.value === "correct") score++;
+        });
+        localStorage.setItem("quizScore", score);
+        window.location.href = "result.html";
+    }
+</script>
+</html>

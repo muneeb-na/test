@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>CSS Quiz</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <h2>CSS Quiz</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. What does CSS stand for?</p>
+                <input type="radio" name="q1" value="wrong"> Computer Style Sheets <br>
+                <input type="radio" name="q1" value="wrong"> Creative Style Sheets<br>
+                <input type="radio" name="q1" value="correct"> Cascading Style Sheets <br>
+                <input type="radio" name="q1" value="wrong"> Colorful Style Sheets <br>
+            </div>
+            <div class="question">
+                <p>2. Which CSS property controls the text size?</p>
+                <input type="radio" name="q2" value="correct"> font-size <br>
+                <input type="radio" name="q2" value="wrong"> text-style <br>
+                <input type="radio" name="q2" value="wrong"> text-size <br>
+                <input type="radio" name="q2" value="wrong"> font-style <br>
+            </div>
+            <div class="question">
+                <p>3. Which is the correct CSS syntax?</p>
+                <input type="radio" name="q3" value="correct"> body {color: black;} <br>
+                <input type="radio" name="q3" value="wrong"> {body;color:black;} <br>
+                <input type="radio" name="q3" value="wrong"> body:color=black; <br>
+                <input type="radio" name="q3" value="wrong"> {body:color=black;} <br>
+            </div>
+            <div class="question">
+                <p>4. How do you add a background color in CSS?</p>
+                <input type="radio" name="q4" value="correct"> background-color <br>
+                <input type="radio" name="q4" value="wrong"> bgcolor <br>
+                <input type="radio" name="q4" value="wrong"> color-background <br>
+                <input type="radio" name="q4" value="wrong"> bg-color <br>
+            </div>
+            <div class="question">
+                <p>5. How do you make text bold in CSS?</p>
+                <input type="radio" name="q5" value="correct"> font-weight: bold; <br>
+                <input type="radio" name="q5" value="wrong"> text-style: bold; <br>
+                <input type="radio" name="q5" value="wrong"> font-bold: true; <br>
+                <input type="radio" name="q5" value="wrong"> text-bold: yes; <br>
+            </div>
+            <div class="question">
+                <p>6. Which property is used to change the font of an element?</p>
+                <input type="radio" name="q6" value="correct"> font-family <br>
+                <input type="radio" name="q6" value="wrong"> text-font <br>
+                <input type="radio" name="q6" value="wrong"> font-style <br>
+                <input type="radio" name="q6" value="wrong"> font-weight <br>
+            </div>
+            <div class="question">
+                <p>7. How do you make a list that does not have bullet points?</p>
+                <input type="radio" name="q7" value="correct"> list-style-type: none; <br>
+                <input type="radio" name="q7" value="wrong"> text-decoration: none; <br>
+                <input type="radio" name="q7" value="wrong"> list: hidden; <br>
+                <input type="radio" name="q7" value="wrong"> remove-bullets: true; <br>
+            </div>
+            <!-- Hard Questions -->
+            <div class="question">
+                <p>8. What is the default positioning of an HTML element?</p>
+                <input type="radio" name="q8" value="correct"> static <br>
+                <input type="radio" name="q8" value="wrong"> relative <br>
+                <input type="radio" name="q8" value="wrong"> absolute <br>
+                <input type="radio" name="q8" value="wrong"> fixed <br>
+            </div>
+            <div class="question">
+                <p>9. How can you apply styles to multiple elements at once?</p>
+                <input type="radio" name="q9" value="correct"> By separating selectors with a comma <br>
+                <input type="radio" name="q9" value="wrong"> By using the & symbol <br>
+                <input type="radio" name="q9" value="wrong"> By writing styles separately <br>
+                <input type="radio" name="q9" value="wrong"> By using the "multi" keyword <br>
+            </div>
+            <div class="question">
+                <p>10. What does the z-index property control?</p>
+                <input type="radio" name="q10" value="correct"> Stack order of elements <br>
+                <input type="radio" name="q10" value="wrong"> Font size <br>
+                <input type="radio" name="q10" value="wrong"> Opacity <br>
+                <input type="radio" name="q10" value="wrong"> Border thickness <br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+</body>
+<script src="script.js"></script>
+<script>
+    function calculateScore() {
+            let score = 0;
+            let answers = document.querySelectorAll('input[type=radio]:checked');
+            
+            answers.forEach(ans => {
+                if (ans.value === "correct") score++;
+            });
+
+            // Store score in local storage
+            localStorage.setItem("quizScore", score);
+
+            // Redirect to result.html
+            window.location.href = "result.html";
+        }
+</script>
+</html>

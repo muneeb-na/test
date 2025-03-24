@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Java Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Java Quiz</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. What is the default value of an `int` variable in Java?</p>
+                <input type="radio" name="q1" value="correct"> 0 <br>
+                <input type="radio" name="q1" value="wrong"> null <br>
+                <input type="radio" name="q1" value="wrong"> 1 <br>
+                <input type="radio" name="q1" value="wrong"> undefined <br>
+            </div>
+            <div class="question">
+                <p>2. Which keyword is used to define a class in Java?</p>
+                <input type="radio" name="q2" value="correct"> class <br>
+                <input type="radio" name="q2" value="wrong"> Class <br>
+                <input type="radio" name="q2" value="wrong"> define <br>
+                <input type="radio" name="q2" value="wrong"> new <br>
+            </div>
+            <div class="question">
+                <p>3. Which of the following is NOT a Java access modifier?</p>
+                <input type="radio" name="q3" value="correct"> internal <br>
+                <input type="radio" name="q3" value="wrong"> public <br>
+                <input type="radio" name="q3" value="wrong"> protected <br>
+                <input type="radio" name="q3" value="wrong"> private <br>
+            </div>
+            <div class="question">
+                <p>4. Which method is called when an object is created?</p>
+                <input type="radio" name="q4" value="correct"> new() <br>
+                <input type="radio" name="q4" value="wrong"> start() <br>
+                <input type="radio" name="q4" value="wrong"> run() <br>
+                <input type="radio" name="q4" value="wrong"> constructor() <br>
+            </div>
+            <div class="question">
+                <p>5. Which data type is used to store a single character in Java?</p>
+                <input type="radio" name="q5" value="correct"> char <br>
+                <input type="radio" name="q5" value="wrong"> String <br>
+                <input type="radio" name="q5" value="wrong"> Character <br>
+                <input type="radio" name="q5" value="wrong"> chr <br>
+            </div>
+            <div class="question">
+                <p>6. What is the output of the following code?<br> int x = 5; System.out.println(x++ + ++x);</p>
+                <input type="radio" name="q6" value="correct"> 11 <br>
+                <input type="radio" name="q6" value="wrong"> 10 <br>
+                <input type="radio" name="q6" value="wrong"> 12 <br>
+                <input type="radio" name="q6" value="wrong"> 13 <br>
+            </div>
+            <div class="question">
+                <p>7. Which of the following statements about Java interfaces is true?</p>
+                <input type="radio" name="q7" value="correct"> Interfaces can have default methods <br>
+                <input type="radio" name="q7" value="wrong"> Interfaces can have constructors <br>
+                <input type="radio" name="q7" value="wrong"> Interfaces can contain instance variables <br>
+                <input type="radio" name="q7" value="wrong"> Interfaces cannot be implemented by a class <br>
+            </div>
+            <div class="question">
+                <p>8. Which collection class maintains insertion order?</p>
+                <input type="radio" name="q8" value="correct"> LinkedHashSet <br>
+                <input type="radio" name="q8" value="wrong"> HashSet <br>
+                <input type="radio" name="q8" value="wrong"> TreeSet <br>
+                <input type="radio" name="q8" value="wrong"> PriorityQueue <br>
+            </div>
+            <div class="question">
+                <p>9. Which of the following will cause a `NullPointerException`?</p>
+                <input type="radio" name="q9" value="correct"> Calling .length() on a null string <br>
+                <input type="radio" name="q9" value="wrong"> Comparing two strings using == <br>
+                <input type="radio" name="q9" value="wrong"> Using instanceof on a null object <br>
+                <input type="radio" name="q9" value="wrong"> Using equals() on a null string <br>
+            </div>
+            <div class="question">
+                <p>10. What will be the output of this code?<br> Integer a = 127; Integer b = 127; System.out.println(a == b);</p>
+                <input type="radio" name="q10" value="correct"> true <br>
+                <input type="radio" name="q10" value="wrong"> false <br>
+                <input type="radio" name="q10" value="wrong"> Compilation error <br>
+                <input type="radio" name="q10" value="wrong"> Runtime exception <br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+</body>
+<script src="script.js"></script>
+<script>
+    function calculateScore() {
+        let score = 0;
+        let answers = document.querySelectorAll('input[type=radio]:checked');
+        answers.forEach(ans => {
+            if (ans.value === "correct") score++;
+        });
+        localStorage.setItem("quizScore", score);
+        window.location.href = "result.html";
+    }
+</script>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Data Analysis Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Data Analysis Quiz</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. Which of the following best defines data analysis?</p>
+                <input type="radio" name="q1" value="wrong"> Collecting data only <br>
+                <input type="radio" name="q1" value="correct"> Cleaning, transforming, and interpreting data to extract insights <br>
+                <input type="radio" name="q1" value="wrong"> Storing data in a database <br>
+                <input type="radio" name="q1" value="wrong"> Creating charts without analysis <br>
+            </div>
+            <div class="question">
+                <p>2. Which of these is NOT a type of data analysis?</p>
+                <input type="radio" name="q2" value="wrong"> Descriptive analysis <br>
+                <input type="radio" name="q2" value="wrong"> Predictive analysis <br>
+                <input type="radio" name="q2" value="wrong"> Exploratory analysis <br>
+                <input type="radio" name="q2" value="correct"> Redundant analysis <br>
+            </div>
+            <div class="question">
+                <p>3. Which tool is commonly used for data visualization?</p>
+                <input type="radio" name="q3" value="wrong"> MS Word <br>
+                <input type="radio" name="q3" value="correct"> Tableau <br>
+                <input type="radio" name="q3" value="wrong"> Notepad <br>
+                <input type="radio" name="q3" value="wrong"> PowerPoint <br>
+            </div>
+            <div class="question">
+                <p>4. What is the main purpose of exploratory data analysis (EDA)?</p>
+                <input type="radio" name="q4" value="correct"> To find hidden patterns in data <br>
+                <input type="radio" name="q4" value="wrong"> To delete unwanted data <br>
+                <input type="radio" name="q4" value="wrong"> To create a final report <br>
+                <input type="radio" name="q4" value="wrong"> To store data securely <br>
+            </div>
+            <div class="question">
+                <p>5. What is the median of this dataset: {2, 5, 8, 10, 12}?</p>
+                <input type="radio" name="q5" value="wrong"> 5 <br>
+                <input type="radio" name="q5" value="correct"> 8 <br>
+                <input type="radio" name="q5" value="wrong"> 10 <br>
+                <input type="radio" name="q5" value="wrong"> 7 <br>
+            </div>
+            <div class="question">
+                <p>6. Which of these is a measure of central tendency?</p>
+                <input type="radio" name="q6" value="wrong"> Variance <br>
+                <input type="radio" name="q6" value="wrong"> Standard deviation <br>
+                <input type="radio" name="q6" value="correct"> Mean <br>
+                <input type="radio" name="q6" value="wrong"> Outlier <br>
+            </div>
+            <div class="question">
+                <p>7. What does a correlation coefficient of -1 indicate?</p>
+                <input type="radio" name="q7" value="wrong"> No relationship between variables <br>
+                <input type="radio" name="q7" value="wrong"> A weak positive relationship <br>
+                <input type="radio" name="q7" value="correct"> A strong negative relationship <br>
+                <input type="radio" name="q7" value="wrong"> A perfect positive relationship <br>
+            </div>
+            <div class="question">
+                <p>8. (Hard) In a normal distribution, approximately what percentage of data falls within one standard deviation from the mean?</p>
+                <input type="radio" name="q8" value="wrong"> 50% <br>
+                <input type="radio" name="q8" value="correct"> 68% <br>
+                <input type="radio" name="q8" value="wrong"> 95% <br>
+                <input type="radio" name="q8" value="wrong"> 99.7% <br>
+            </div>
+            <div class="question">
+                <p>9. (Hard) Which statistical test is used to compare the means of two independent groups?</p>
+                <input type="radio" name="q9" value="wrong"> Chi-square test <br>
+                <input type="radio" name="q9" value="wrong"> ANOVA <br>
+                <input type="radio" name="q9" value="correct"> T-test <br>
+                <input type="radio" name="q9" value="wrong"> Regression analysis <br>
+            </div>
+            <div class="question">
+                <p>10. (Hard) If a dataset is skewed to the right (positively skewed), what can be said about the relationship between mean, median, and mode?</p>
+                <input type="radio" name="q10" value="correct"> Mean > Median > Mode <br>
+                <input type="radio" name="q10" value="wrong"> Mode > Median > Mean <br>
+                <input type="radio" name="q10" value="wrong"> Mean = Median = Mode <br>
+                <input type="radio" name="q10" value="wrong"> Median > Mean > Mode <br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+</body>
+<script src="script.js"></script>
+<script>
+    function calculateScore() {
+        let score = 0;
+        let answers = document.querySelectorAll('input[type=radio]:checked');
+        answers.forEach(ans => {
+            if (ans.value === "correct") score++;
+        });
+        localStorage.setItem("quizScore", score);
+        window.location.href = "result.html";
+    }
+</script>
+</html>

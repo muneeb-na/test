@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Digital Marketing Quiz</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Digital Marketing Quiz</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. What does SEO stand for?</p>
+                <input type="radio" name="q1" value="correct"> Search Engine Optimization <br>
+                <input type="radio" name="q1" value="wrong"> Social Engagement Opportunity <br>
+                <input type="radio" name="q1" value="wrong"> Site Efficiency Optimization <br>
+                <input type="radio" name="q1" value="wrong"> Structured E-commerce Operation <br>
+            </div>
+            <div class="question">
+                <p>2. Which platform is best for B2B marketing?</p>
+                <input type="radio" name="q2" value="wrong"> Facebook <br>
+                <input type="radio" name="q2" value="wrong"> Instagram <br>
+                <input type="radio" name="q2" value="correct"> LinkedIn <br>
+                <input type="radio" name="q2" value="wrong"> Snapchat <br>
+            </div>
+            <div class="question">
+                <p>3. In PPC advertising, what does "CPC" stand for?</p>
+                <input type="radio" name="q3" value="wrong"> Cost Per Customer <br>
+                <input type="radio" name="q3" value="correct"> Cost Per Click <br>
+                <input type="radio" name="q3" value="wrong"> Click Per Conversion <br>
+                <input type="radio" name="q3" value="wrong"> Click Price Calculation <br>
+            </div>
+            <div class="question">
+                <p>4. What is the main purpose of content marketing?</p>
+                <input type="radio" name="q4" value="wrong"> Selling products directly <br>
+                <input type="radio" name="q4" value="wrong"> Creating viral content <br>
+                <input type="radio" name="q4" value="correct"> Providing valuable information to attract customers <br>
+                <input type="radio" name="q4" value="wrong"> Increasing website bounce rate <br>
+            </div>
+            <div class="question">
+                <p>5. What does the term "bounce rate" mean in website analytics?</p>
+                <input type="radio" name="q5" value="correct"> The percentage of users who visit only one page before leaving <br>
+                <input type="radio" name="q5" value="wrong"> The percentage of users who click on ads <br>
+                <input type="radio" name="q5" value="wrong"> The speed at which a webpage loads <br>
+                <input type="radio" name="q5" value="wrong"> The total number of website visitors <br>
+            </div>
+            <div class="question">
+                <p>6. Which of these is NOT a Google ranking factor?</p>
+                <input type="radio" name="q6" value="wrong"> Page Speed <br>
+                <input type="radio" name="q6" value="wrong"> Backlinks <br>
+                <input type="radio" name="q6" value="correct"> Meta Keywords <br>
+                <input type="radio" name="q6" value="wrong"> Mobile Friendliness <br>
+            </div>
+            <div class="question">
+                <p>7. (Hard) What is the "canonical tag" used for in SEO?</p>
+                <input type="radio" name="q7" value="wrong"> To track website traffic <br>
+                <input type="radio" name="q7" value="correct"> To prevent duplicate content issues <br>
+                <input type="radio" name="q7" value="wrong"> To improve keyword rankings <br>
+                <input type="radio" name="q7" value="wrong"> To add alt text to images <br>
+            </div>
+            <div class="question">
+                <p>8. (Hard) In Google Ads, what is the difference between "Broad Match" and "Exact Match" keywords?</p>
+                <input type="radio" name="q8" value="correct"> Broad match shows ads for related searches, while exact match only shows for the exact keyword <br>
+                <input type="radio" name="q8" value="wrong"> Broad match is cheaper than exact match <br>
+                <input type="radio" name="q8" value="wrong"> Exact match covers more keywords than broad match <br>
+                <input type="radio" name="q8" value="wrong"> Broad match only works for search ads <br>
+            </div>
+            <div class="question">
+                <p>9. (Hard) What does "Attribution Model" mean in digital marketing?</p>
+                <input type="radio" name="q9" value="correct"> A method to credit different touchpoints in the customer journey for conversions <br>
+                <input type="radio" name="q9" value="wrong"> A technique for targeting users on social media <br>
+                <input type="radio" name="q9" value="wrong"> A ranking factor used by Google <br>
+                <input type="radio" name="q9" value="wrong"> A way to measure website loading speed <br>
+            </div>
+            <div class="question">
+                <p>10. What is the primary goal of A/B testing in digital marketing?</p>
+                <input type="radio" name="q10" value="wrong"> To compare two different businesses <br>
+                <input type="radio" name="q10" value="wrong"> To test different website hosting providers <br>
+                <input type="radio" name="q10" value="correct"> To compare two versions of a webpage or ad for performance <br>
+                <input type="radio" name="q10" value="wrong"> To measure website traffic sources <br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+</body>
+<script src="script.js"></script>
+<script>
+    function calculateScore() {
+        let score = 0;
+        let answers = document.querySelectorAll('input[type=radio]:checked');
+        answers.forEach(ans => {
+            if (ans.value === "correct") score++;
+        });
+        localStorage.setItem("quizScore", score);
+        window.location.href = "result.html";
+    }
+</script>
+</html>

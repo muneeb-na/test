@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Digital Marketing Quiz</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>SEO Quiz</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. What does SEO stand for?</p>
+                <input type="radio" name="q1" value="correct"> Search Engine Optimization <br>
+                <input type="radio" name="q1" value="wrong"> Site Engagement Optimization <br>
+                <input type="radio" name="q1" value="wrong"> Social Engine Optimization <br>
+                <input type="radio" name="q1" value="wrong"> Structured Engine Optimization <br>
+            </div>
+            <div class="question">
+                <p>2. Which of the following is a key factor in on-page SEO?</p>
+                <input type="radio" name="q2" value="wrong"> Backlinks <br>
+                <input type="radio" name="q2" value="wrong"> Page speed <br>
+                <input type="radio" name="q2" value="correct"> Meta tags <br>
+                <input type="radio" name="q2" value="wrong"> Social media shares <br>
+            </div>
+            <div class="question">
+                <p>3. Which search engine is the most widely used?</p>
+                <input type="radio" name="q3" value="wrong"> Bing <br>
+                <input type="radio" name="q3" value="wrong"> Yahoo <br>
+                <input type="radio" name="q3" value="correct"> Google <br>
+                <input type="radio" name="q3" value="wrong"> DuckDuckGo <br>
+            </div>
+            <div class="question">
+                <p>4. Which tag is used to improve click-through rate (CTR) in search results?</p>
+                <input type="radio" name="q4" value="correct"> &lt;title&gt; <br>
+                <input type="radio" name="q4" value="wrong"> &lt;h1&gt; <br>
+                <input type="radio" name="q4" value="wrong"> &lt;meta name="robots"&gt; <br>
+                <input type="radio" name="q4" value="wrong"> &lt;alt&gt; <br>
+            </div>
+            <div class="question">
+                <p>5. What is the purpose of a robots.txt file?</p>
+                <input type="radio" name="q5" value="wrong"> To increase website ranking <br>
+                <input type="radio" name="q5" value="correct"> To prevent search engines from crawling certain pages <br>
+                <input type="radio" name="q5" value="wrong"> To generate more backlinks <br>
+                <input type="radio" name="q5" value="wrong"> To improve site speed <br>
+            </div>
+            <div class="question">
+                <p>6. What is anchor text in SEO?</p>
+                <input type="radio" name="q6" value="correct"> The visible text in a hyperlink <br>
+                <input type="radio" name="q6" value="wrong"> A website's main heading <br>
+                <input type="radio" name="q6" value="wrong"> A hidden keyword tag <br>
+                <input type="radio" name="q6" value="wrong"> A type of meta description <br>
+            </div>
+            <div class="question">
+                <p>7. What does 301 redirect do?</p>
+                <input type="radio" name="q7" value="wrong"> Redirects a page temporarily <br>
+                <input type="radio" name="q7" value="correct"> Moves a page permanently <br>
+                <input type="radio" name="q7" value="wrong"> Blocks search engines from crawling a page <br>
+                <input type="radio" name="q7" value="wrong"> Increases website loading speed <br>
+            </div>
+            <div class="question">
+                <p>8. (Hard) Which HTTP status code indicates that Googlebot is temporarily blocked from crawling a page?</p>
+                <input type="radio" name="q8" value="wrong"> 200 <br>
+                <input type="radio" name="q8" value="wrong"> 301 <br>
+                <input type="radio" name="q8" value="correct"> 403 <br>
+                <input type="radio" name="q8" value="wrong"> 500 <br>
+            </div>
+            <div class="question">
+                <p>9. (Hard) Which of these statements about canonical tags is TRUE?</p>
+                <input type="radio" name="q9" value="correct"> They tell search engines which version of a duplicate page should be indexed <br>
+                <input type="radio" name="q9" value="wrong"> They speed up page loading time <br>
+                <input type="radio" name="q9" value="wrong"> They increase domain authority <br>
+                <input type="radio" name="q9" value="wrong"> They help in writing SEO-friendly meta descriptions <br>
+            </div>
+            <div class="question">
+                <p>10. (Hard) What is Google’s Core Web Vitals used for?</p>
+                <input type="radio" name="q10" value="wrong"> Measuring backlinks <br>
+                <input type="radio" name="q10" value="correct"> Checking website loading speed and user experience <br>
+                <input type="radio" name="q10" value="wrong"> Increasing keyword rankings <br>
+                <input type="radio" name="q10" value="wrong"> Boosting paid advertisements <br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+</body>
+<script src="script.js"></script>
+<script>
+    function calculateScore() {
+        let score = 0;
+        let answers = document.querySelectorAll('input[type=radio]:checked');
+        answers.forEach(ans => {
+            if (ans.value === "correct") score++;
+        });
+        localStorage.setItem("quizScore", score);
+        window.location.href = "result.html";
+    }
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Your Certificate</title>
+</head>
+<body>
+    <form id="certificateForm">
+        <input type="text" id="name" placeholder="Enter Your Name" required>
+        <input type="email" id="email" placeholder="Enter Your Email" required>
+        <button type="submit">Get Certificate</button>
+    </form>
+
+    <script>
+        document.getElementById("certificateForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let testNumber = localStorage.getItem("selectedTest") || "0";  // Default to "0" if null
+            let testScore = localStorage.getItem("quizScore") || "0";     // Default to "0" if null
+
+            // Check if the user actually took a test
+            if (testNumber === "0" || testScore === "0") {
+                alert("❌ No test data found. Please complete a test first.");
+                return;
+            }
+
+            fetch("https://script.google.com/macros/s/AKfycbxgEB2wgRiTB45lHa_3SC-Z-iR9tbn-302Je38e7HLhFIpb7X1va6L81PmTreb2HuPGVw/exec", {
+                method: "POST",
+                body: JSON.stringify({ name, email, testNumber, testScore }),
+                headers: { "Content-Type": "application/json" }
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert("✅ Certificate will be emailed to you shortly!");
+            })
+            .catch(error => {
+                alert("❌ Something went wrong! Try again.");
+                console.error(error);
+            });
+        });
+    </script>
+</body>
+</html>

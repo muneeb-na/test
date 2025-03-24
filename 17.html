@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>AI & ML Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>AI & ML Quiz</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. What is the main goal of Artificial Intelligence?</p>
+                <input type="radio" name="q1" value="wrong"> To create human-like robots <br>
+                <input type="radio" name="q1" value="correct"> To develop software that can think and learn like humans <br>
+                <input type="radio" name="q1" value="wrong"> To replace humans in every industry <br>
+                <input type="radio" name="q1" value="wrong"> To build faster computers <br>
+            </div>
+            <div class="question">
+                <p>2. Which of the following is an example of supervised learning?</p>
+                <input type="radio" name="q2" value="wrong"> Clustering customer data <br>
+                <input type="radio" name="q2" value="correct"> Identifying spam emails using labeled data <br>
+                <input type="radio" name="q2" value="wrong"> Sorting images without predefined categories <br>
+                <input type="radio" name="q2" value="wrong"> Playing chess without prior knowledge <br>
+            </div>
+            <div class="question">
+                <p>3. Which AI algorithm is commonly used for facial recognition?</p>
+                <input type="radio" name="q3" value="wrong"> Naïve Bayes <br>
+                <input type="radio" name="q3" value="correct"> Convolutional Neural Networks (CNNs) <br>
+                <input type="radio" name="q3" value="wrong"> K-Means Clustering <br>
+                <input type="radio" name="q3" value="wrong"> Decision Trees <br>
+            </div>
+            <div class="question">
+                <p>4. What does NLP stand for in AI?</p>
+                <input type="radio" name="q4" value="wrong"> Neural Learning Processing <br>
+                <input type="radio" name="q4" value="correct"> Natural Language Processing <br>
+                <input type="radio" name="q4" value="wrong"> Network Logic Programming <br>
+                <input type="radio" name="q4" value="wrong"> New Logic Protocol <br>
+            </div>
+            <div class="question">
+                <p>5. Which technique is used in Machine Learning to reduce overfitting?</p>
+                <input type="radio" name="q5" value="wrong"> Increasing dataset size <br>
+                <input type="radio" name="q5" value="correct"> Using dropout and regularization <br>
+                <input type="radio" name="q5" value="wrong"> Adding more layers to a neural network <br>
+                <input type="radio" name="q5" value="wrong"> Using high learning rates <br>
+            </div>
+            <div class="question">
+                <p>6. Which ML algorithm is best suited for classifying emails as "spam" or "not spam"?</p>
+                <input type="radio" name="q6" value="wrong"> Linear Regression <br>
+                <input type="radio" name="q6" value="wrong"> K-Means Clustering <br>
+                <input type="radio" name="q6" value="correct"> Support Vector Machines (SVM) <br>
+                <input type="radio" name="q6" value="wrong"> Principal Component Analysis (PCA) <br>
+            </div>
+            <div class="question">
+                <p>7. (Hard) In deep learning, which activation function is most commonly used in hidden layers of neural networks?</p>
+                <input type="radio" name="q7" value="wrong"> Softmax <br>
+                <input type="radio" name="q7" value="correct"> ReLU (Rectified Linear Unit) <br>
+                <input type="radio" name="q7" value="wrong"> Sigmoid <br>
+                <input type="radio" name="q7" value="wrong"> Tanh <br>
+            </div>
+            <div class="question">
+                <p>8. (Hard) What is the primary purpose of the Transformer model in AI?</p>
+                <input type="radio" name="q8" value="wrong"> To recognize handwritten digits <br>
+                <input type="radio" name="q8" value="wrong"> To enhance CNN performance in image recognition <br>
+                <input type="radio" name="q8" value="correct"> To process sequential data more efficiently than RNNs <br>
+                <input type="radio" name="q8" value="wrong"> To generate synthetic data <br>
+            </div>
+            <div class="question">
+                <p>9. (Hard) Which of the following is a drawback of the k-Nearest Neighbors (k-NN) algorithm?</p>
+                <input type="radio" name="q9" value="wrong"> It requires labeled data for training <br>
+                <input type="radio" name="q9" value="correct"> It is slow for large datasets because it calculates distance for all points <br>
+                <input type="radio" name="q9" value="wrong"> It cannot handle classification problems <br>
+                <input type="radio" name="q9" value="wrong"> It does not work with continuous data <br>
+            </div>
+            <div class="question">
+                <p>10. (Hard) In reinforcement learning, what is the difference between an "on-policy" and "off-policy" algorithm?</p>
+                <input type="radio" name="q10" value="wrong"> On-policy algorithms learn from previous policies, while off-policy algorithms learn from new policies <br>
+                <input type="radio" name="q10" value="correct"> On-policy algorithms use the same policy for learning and decision-making, whereas off-policy algorithms learn from other policies <br>
+                <input type="radio" name="q10" value="wrong"> Off-policy algorithms are used only for supervised learning, while on-policy algorithms are for unsupervised learning <br>
+                <input type="radio" name="q10" value="wrong"> There is no difference between on-policy and off-policy algorithms <br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+</body>
+<script src="script.js"></script>
+<script>
+    function calculateScore() {
+        let score = 0;
+        let answers = document.querySelectorAll('input[type=radio]:checked');
+        answers.forEach(ans => {
+            if (ans.value === "correct") score++;
+        });
+        localStorage.setItem("quizScore", score);
+        window.location.href = "result.html";
+    }
+</script>
+</html>

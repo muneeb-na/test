@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Java Quiz</title>
+<link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="container">
+        <h2>C++ Quiz</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. Which of the following is used to define a constant in C++?</p>
+                <input type="radio" name="q1" value="correct"> const <br>
+                <input type="radio" name="q1" value="wrong"> constant <br>
+                <input type="radio" name="q1" value="wrong"> #define <br>
+                <input type="radio" name="q1" value="wrong"> var <br>
+            </div>
+            <div class="question">
+                <p>2. What is the size of an int in C++ (on most modern systems)?</p>
+                <input type="radio" name="q2" value="correct"> 4 bytes <br>
+                <input type="radio" name="q2" value="wrong"> 2 bytes <br>
+                <input type="radio" name="q2" value="wrong"> 8 bytes <br>
+                <input type="radio" name="q2" value="wrong"> Depends on compiler <br>
+            </div>
+            <div class="question">
+                <p>3. Which of the following is NOT a valid variable type in C++?</p>
+                <input type="radio" name="q3" value="correct"> real <br>
+                <input type="radio" name="q3" value="wrong"> int <br>
+                <input type="radio" name="q3" value="wrong"> float <br>
+                <input type="radio" name="q3" value="wrong"> char <br>
+            </div>
+            <div class="question">
+                <p>4. What does the keyword `new` do in C++?</p>
+                <input type="radio" name="q4" value="correct"> Allocates memory dynamically <br>
+                <input type="radio" name="q4" value="wrong"> Defines a new variable <br>
+                <input type="radio" name="q4" value="wrong"> Deletes a pointer <br>
+                <input type="radio" name="q4" value="wrong"> Creates a new function <br>
+            </div>
+            <div class="question">
+                <p>5. What is the output of `cout << 3/2;` in C++?</p>
+                <input type="radio" name="q5" value="correct"> 1 <br>
+                <input type="radio" name="q5" value="wrong"> 1.5 <br>
+                <input type="radio" name="q5" value="wrong"> 2 <br>
+                <input type="radio" name="q5" value="wrong"> 0 <br>
+            </div>
+            <div class="question">
+                <p>6. What does the `this` pointer point to in C++?</p>
+                
+                <input type="radio" name="q6" value="wrong"> The parent class <br>
+                <input type="radio" name="q6" value="wrong"> The first object created <br>
+                <input type="radio" name="q6" value="correct"> The current object instance <br>
+                <input type="radio" name="q6" value="wrong"> The last object created <br>
+            </div>
+            <div class="question">
+                <p>7. Which of the following is true about destructors in C++?</p>
+                
+                <input type="radio" name="q7" value="wrong"> They must return an int <br>
+                <input type="radio" name="q7" value="correct"> They have the same name as the class with a ~ prefix <br>
+                <input type="radio" name="q7" value="wrong"> They can be overloaded <br>
+                <input type="radio" name="q7" value="wrong"> They must be manually called <br>
+            </div>
+            <div class="question">
+                <p>8. What is the purpose of `static` keyword for a variable inside a function?</p>
+                <input type="radio" name="q8" value="wrong"> Makes the variable read-only <br>
+                <input type="radio" name="q8" value="wrong"> Makes the variable global <br>
+                <input type="radio" name="q8" value="wrong"> Prevents memory allocation <br>
+                <input type="radio" name="q8" value="correct"> Retains value between function calls <br>
+            </div>
+            <div class="question">
+                <p>9. How do you declare a reference variable in C++?</p>
+                <input type="radio" name="q9" value="wrong"> int ref = &x; <br>31
+                <input type="radio" name="q9" value="wrong"> ref int x; <br>
+                <input type="radio" name="q9" value="wrong"> int *ref = x; <br>
+                <input type="radio" name="q9" value="correct"> int& ref = x; <br>
+            </div>
+            <div class="question">
+                <p>10. Which of the following is true about virtual functions in C++?</p>
+                <input type="radio" name="q10" value="wrong"> They must return void <br>
+                <input type="radio" name="q10" value="correct"> They allow dynamic polymorphism <br>
+                <input type="radio" name="q10" value="wrong"> They cannot be overridden <br>
+                <input type="radio" name="q10" value="wrong"> They can only be defined in derived classes <br>
+            </div>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+</body>
+<script src="script.js"></script>
+<script>
+    function calculateScore() {
+        let score = 0;
+        let answers = document.querySelectorAll('input[type=radio]:checked');
+        answers.forEach(ans => {
+            if (ans.value === "correct") score++;
+        });
+        localStorage.setItem("quizScore", score);
+        window.location.href = "result.html";
+    }
+</script>
+</html>
